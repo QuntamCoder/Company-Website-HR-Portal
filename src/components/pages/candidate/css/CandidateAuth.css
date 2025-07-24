@@ -1,0 +1,367 @@
+/* Base Styles */
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #4895ef;
+  --secondary-color: #3f37c9;
+  --dark-color: #1a1a2e;
+  --light-color: #f8f9fa;
+  --gray-color: #6c757d;
+  --success-color: #4cc9f0;
+  --google-red: #db4437;
+  --linkedin-blue: #0077b5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container Styles */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.branding-section {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #4361ee, #3f37c9);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.branding-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+.branding-content {
+  max-width: 500px;
+  z-index: 1;
+}
+
+.company-name {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.company-tagline {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.features-list {
+  margin-top: 3rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.feature-icon {
+  background: rgba(255, 255, 255, 0.2);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+
+/* Form Section Styles */
+.form-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-color);
+  padding: 2rem;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-title {
+  font-size: 2rem;
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: var(--gray-color);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Form Styles */
+.auth-form {
+  margin-top: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-group.floating input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 2.5rem;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  transition: all 0.3s ease;
+  color: var(--dark-color);
+}
+
+.input-group.floating input:focus {
+  outline: none;
+  border-bottom-color: var(--primary-color);
+}
+
+.input-group.floating input:focus ~ .underline {
+  transform: scaleX(1);
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-color);
+  font-size: 1.1rem;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--gray-color);
+  font-size: 1.1rem;
+}
+
+.password-toggle:hover {
+  color: var(--dark-color);
+}
+
+.forgot-password {
+  text-align: right;
+  margin: -0.5rem 0 1.5rem;
+}
+
+.forgot-password a {
+  color: var(--gray-color);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgot-password a:hover {
+  color: var(--primary-color);
+}
+
+/* Button Styles */
+.auth-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.auth-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(63, 55, 201, 0.2);
+}
+
+.btn-arrow {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-arrow.animate {
+  transform: translateX(3px);
+}
+
+/* Divider Styles */
+.divider {
+  position: relative;
+  margin: 2rem 0;
+  text-align: center;
+  color: var(--gray-color);
+  font-size: 0.8rem;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  z-index: -1;
+}
+
+.divider span {
+  background: var(--light-color);
+  padding: 0 1rem;
+}
+
+/* Social Login Styles */
+/* Social Login Container */
+.social-login {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+/* Base Social Button Styles */
+.social-btn {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Social Button Hover Effects */
+.social-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Google Button Specific Styles */
+.social-btn.google {
+  border-color: #e0e0e0;
+}
+
+.social-btn.google:hover {
+  border-color: #c2c2c2;
+  background-color: #f8f8f8;
+}
+
+/* LinkedIn Button Specific Styles */
+.social-btn.linkedin {
+  border-color: #0077b5;
+  color: #0077b5;
+}
+
+.social-btn.linkedin:hover {
+  background-color: #f0f7fc;
+}
+
+/* Social Icon Styles */
+.social-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Adjust SVG icon positioning if needed */
+.social-btn svg {
+  vertical-align: middle;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .social-login {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .social-btn {
+    padding: 0.8rem;
+  }
+}
+/* Toggle Text Styles */
+.toggle-text {
+  text-align: center;
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+.toggle-link {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.toggle-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+  }
+  
+  .branding-section {
+    padding: 2rem 1rem;
+  }
+  
+  .form-section {
+    padding: 2rem 1rem;
+  }
+}
