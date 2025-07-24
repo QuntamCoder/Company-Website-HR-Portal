@@ -1,0 +1,125 @@
+/* Team Section Styles */
+.team-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.team-section p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Team Grid */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  margin: 0 auto 40px;
+}
+
+/* Team Member Card */
+.team-member {
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.team-member h3 span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #666;
+  margin-top: 5px;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #666;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .team-member {
+    width: 250px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    width: 220px;
+  }
+
+  .team-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-section {
+    padding: 60px 15px;
+  }
+
+  .team-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 15px;
+  }
+
+  .team-member {
+    scroll-snap-align: center;
+    min-width: 85%;
+  }
+}
