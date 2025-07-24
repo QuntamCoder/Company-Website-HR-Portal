@@ -10,10 +10,7 @@
             min-height: 100vh;
         }
 
-        .dashboard-container {
-            display: flex;
-            min-height: 100vh;
-        }
+
 
         /* Sidebar Styles */
         .sidebar {

@@ -74,7 +74,7 @@ function HRDashboard() {
               <div className="user-avatar">JD</div>
               <div>
                 <div style={{ fontWeight: 600, fontSize: "14px" }}>
-                  John Doe
+                  Shubham Kale
                 </div>
                 <div style={{ fontSize: "12px", color: "#6b7280" }}>
                   HR Manager
