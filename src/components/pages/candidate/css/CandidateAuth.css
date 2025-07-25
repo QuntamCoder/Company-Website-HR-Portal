@@ -97,17 +97,21 @@
   justify-content: center;
   background-color: var(--light-color);
   padding: 2rem;
+  overflow: hidden;
+  margin-top: -10%;
 }
 
 .form-container {
   width: 100%;
   max-width: 400px;
+  margin-top: 220px;
 }
 
 .form-title {
   font-size: 2rem;
   color: var(--dark-color);
   margin-bottom: 0.5rem;
+
 }
 
 .form-subtitle {
