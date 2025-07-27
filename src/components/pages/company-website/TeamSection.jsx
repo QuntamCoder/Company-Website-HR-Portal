@@ -6,28 +6,28 @@ const TeamSection = ({ teamRef }) => {
   // Only 4 team members
   const teamMembers = [
     {
-      name: "Sarah Thompson",
+      name: "Shubham kale",
       position: "CEO & Co-Founder",
       bio: "With over 15 years of leadership experience in the tech industry, Sarah oversees strategy, partnerships, and innovation at our company.",
       social: ["linkedin", "twitter"],
       img: "/team/hulk.jpg",
     },
     {
-      name: "David Patel",
+      name: "Dhanashri Bhamare",
       position: "Chief Technology Officer",
       bio: "David leads our engineering team with a focus on architecture, performance, and cutting-edge technology solutions.",
       social: ["linkedin", "github"],
       img: "/team/dr-strange.jpg",
     },
     {
-      name: "Alicia Kim",
+      name: "Amol Jadhav",
       position: "Head of Design",
       bio: "Alicia combines aesthetics with usability to create intuitive and beautiful digital experiences for our clients.",
       social: ["linkedin", "twitter"],
       img: "/team/iron-man.jpg",
     },
     {
-      name: "Michael Rivera",
+      name: "Ketan Naik",
       position: "Lead DevOps Engineer",
       bio: "Michael ensures our infrastructure is robust, scalable, and secure with his expertise in cloud technologies.",
       social: ["linkedin", "github"],
