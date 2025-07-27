@@ -18,7 +18,7 @@
   color: var(--text);
   padding: 3rem 1.5rem 0;
   border-top: 1px solid var(--border);
-  margin-top: 4rem;
+  margin-top: 0;
 }
 
 .footer-container {
@@ -66,7 +66,7 @@
 .footer-links a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 65px;
   left: 0;
   width: 0;
   height: 2px;
