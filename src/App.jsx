@@ -7,6 +7,7 @@ import LeaveApplicationForm from './components/pages/employee/LeaveApplicationFo
 import EmployeeDashboard from './components/pages/employee/EmployeeDashBoard.jsx';
 import EmployeePerformance from './components/pages/employee/EmployeePerformance.jsx';
 import CandidateAuth from './components/pages/candidate/CandidateAuth.jsx';
+import CandidateNavbar from './components/pages/candidate/CandidateNavbar.jsx';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
     //     </Routes>
     //   </div>
     // </Router>
-    <CandidateAuth />
+    // <CandidateAuth />
+    <CandidateNavbar />
   );
 
 }
