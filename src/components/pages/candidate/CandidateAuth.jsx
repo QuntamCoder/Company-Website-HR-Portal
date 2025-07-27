@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff, FiUser, FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
 import './css/CandidateAuth.css';
 
 const CandidateAuth = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -23,12 +21,18 @@ const CandidateAuth = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (isLogin) {
-      console.log('Logging in with:', formData);
-      // call login API
+      // Static login check
+      if (formData.email === 'dhanashribhamare977@gmail.com' && formData.password === 'admin@1234') {
+        alert('Login successful!');
+        window.open('/candidate-dashboard', '_blank');
+      } else {
+        alert('Invalid credentials. Try admin/admin');
+      }
     } else {
-      console.log('Signing up with:', formData);
-      // call signup API
+      alert('Account created successfully!');
+      setIsLogin(true);
     }
   };
 

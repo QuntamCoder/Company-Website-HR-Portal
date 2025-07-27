@@ -12,21 +12,23 @@ import CandidateNavbar from './components/pages/candidate/CandidateNavbar.jsx';
 
 function App() {
   return (
-    // <Router>
-    //   <div className="App">
-    //     {/* <HRDashboard /> */}
-    //     <EmployeeDashboard/>
-    //     <Routes>
-    //       <Route path="/add-employee" element={<AddEmployee />} />
-    //       <Route path="/post-opening" element={<NewJobForm/>} />
-    //     <Route path="/apply-leave" element={<LeaveApplicationForm />} />
-    //     <Route path="/emp-performance" element={<EmployeePerformance />} />
+    <Router>
+      <div className="App">
+        {/* <HRDashboard /> */}
+         <CandidateAuth />
+        <Routes>
+          {/* <Route path="/add-employee" element={<AddEmployee />} />
+          <Route path="/post-opening" element={<NewJobForm/>} />
+        <Route path="/apply-leave" element={<LeaveApplicationForm />} />
+        <Route path="/emp-performance" element={<EmployeePerformance />} /> */}
+        {/* <Route path="/" element={<CandidateAuth />} /> */}
+        <Route path="/candidate-dashboard" element={<CandidateNavbar />} />
 
-    //     </Routes>
-    //   </div>
-    // </Router>
-    // <CandidateAuth />
-    <CandidateNavbar />
+        </Routes>
+      </div>
+    </Router>
+   
+    // <CandidateNavbar />
   );
 
 }
