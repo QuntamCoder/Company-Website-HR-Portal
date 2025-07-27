@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaSearch, FaMapMarkerAlt, FaBriefcase, FaMoneyBillWave, FaClock } from 'react-icons/fa';
-import './careers.css';
+import './css/careers.css';
 
 const CareerSection = () => {
   const [jobs, setJobs] = useState([]);

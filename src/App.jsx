@@ -8,14 +8,16 @@ import LeaveApplicationForm from './components/pages/employee/LeaveApplicationFo
 import EmployeePerformance from './components/pages/employee/EmployeePerformance.jsx';
 import CandidateAuth from './components/pages/candidate/CandidateAuth.jsx';
 import CandidateNavbar from './components/pages/candidate/CandidateNavbar.jsx';
+import CompanyWebsite from './components/pages/company-website/CompanyWebsite.jsx';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/" element={<CompanyWebsite />} />
           {/* Candidate routes */}
-          <Route path="/" element={<CandidateAuth />} />
+          <Route path="/candidate-auth" element={<CandidateAuth />} />
           <Route path="/candidate-dashboard" element={<CandidateNavbar />} />
 
           {/* Admin routes */}

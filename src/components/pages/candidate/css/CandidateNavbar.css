@@ -1,213 +1,210 @@
-/* CandidateNavbar.css */
-
-/* Modern Color Palette */
-:root {
-  --primary: #6366f1;  /* Indigo-500 */
-  --primary-dark: #4f46e5;  /* Indigo-600 */
-  --primary-light: #a5b4fc;  /* Indigo-300 */
-  --text: #1e293b;  /* Slate-800 */
-  --text-light: #64748b;  /* Slate-500 */
-  --bg: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --border-radius: 12px;
-  --blur: blur(12px);
-}
-
-/* Base Styles */
-* {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+/* Ensure no spacing from parent elements */
+body {
+  padding-top: 0 !important;
+}
+
+/* Remove any potential spacing from the root div */
+
+/* Candidate Portal Navbar - Completely Isolated Styles */
+.candidate-portal-wrapper {
+  isolation: isolate; /* Creates new stacking context */
+    margin: 0; /* Ensure no margin on wrapper */
+
 }
 
 /* Navbar Container */
-.navbar {
-  position: fixed;
+.candidate-portal-nav {
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
-  background: lavender;
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: var(--shadow);
-  padding: 0.75rem 1.5rem;
+  z-index: 1000;
+  background-color: #e6e6fa; /* Lavender */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(106, 90, 205, 0.2);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 2rem;
+  margin: 0; 
 }
 
-.navbar-container {
-  max-width: 1280px;
+.candidate-portal-nav-container {
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-/* Logo Style */
-.logo {
-  font-size: 1.5rem;
+/* Logo Styles */
+.candidate-portal-nav-logo {
+  color: #6a5acd; /* Slate blue */
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary);
-  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  margin: 0;
+  background: linear-gradient(to right, #6a5acd, #483d8b);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -0.025em;
-  transition: var(--transition);
+  letter-spacing: -0.5px;
+  transition: transform 0.3s ease;
 }
 
-.logo:hover {
-  opacity: 0.9;
+.candidate-portal-nav-logo:hover {
+  transform: scale(1.03);
 }
 
-/* Mobile Menu Icon */
-.menu-icon {
+/* Hamburger Menu */
+.candidate-portal-hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 24px;
+  width: 28px;
   height: 20px;
   cursor: pointer;
-  z-index: 60;
+  z-index: 1001;
 }
 
-.menu-icon .bar {
-  height: 2px;
+.candidate-portal-hamburger-line {
+  height: 3px;
   width: 100%;
-  background-color: var(--text);
+  background-color: #6a5acd;
   border-radius: 2px;
-  transition: var(--transition);
-  transform-origin: left center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Navigation Links */
-.nav-links {
+/* Active Hamburger State */
+.candidate-portal-hamburger.active .candidate-portal-hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.candidate-portal-hamburger.active .candidate-portal-hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.candidate-portal-hamburger.active .candidate-portal-hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navigation Menu */
+.candidate-portal-nav-menu {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  gap: 1.8rem;
 }
 
-.nav-link {
-  position: relative;
-  color: var(--text-light);
-  font-weight: 500;
-  font-size: 0.95rem;
+.candidate-portal-nav-item {
+  margin: 0;
+  padding: 0;
+}
+
+.candidate-portal-nav-link {
+  color: #4a4a4a;
   text-decoration: none;
-  transition: var(--transition);
+  font-weight: 600;
+  font-size: 1rem;
   padding: 0.5rem 0;
-  color: #1e293b;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.nav-link:hover {
-  color: lavender;
+.candidate-portal-nav-link:hover {
+  color: #6a5acd;
 }
 
-.nav-link::after {
+.candidate-portal-nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, var(--primary), var(--primary-dark));
-  transition: var(--transition);
-  border-radius: 2px;
+  background: linear-gradient(to right, #6a5acd, #483d8b);
+  transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.candidate-portal-nav-link:hover::after {
   width: 100%;
 }
 
 /* CTA Button */
-.cta-button {
-  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+.candidate-portal-nav-cta {
+  background: linear-gradient(to right, #6a5acd, #483d8b);
   color: white;
   border: none;
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(106, 90, 205, 0.3);
 }
 
-.cta-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+.candidate-portal-nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.4);
   opacity: 0.95;
 }
 
-/* Active State for Mobile Menu */
-.nav-links.active {
-  transform: translateX(0) !important;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .menu-icon {
+/* Mobile Styles */
+@media (max-width: 992px) {
+  .candidate-portal-hamburger {
     display: flex;
   }
-  
-  .nav-links {
+
+  .candidate-portal-nav-menu {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 70%;
+    right: -100%;
+    width: 280px;
     height: 100vh;
-    background: lavender;
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
+    background-color: #f5f5ff;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    transform: translateX(100%);
-    transition: var(--transition);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    gap: 2.5rem;
+    transition: right 0.4s ease;
     padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   }
-  
-  .menu-icon.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(2px, -1px);
-    background-color: var(--primary);
-  }
-  
-  .menu-icon.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-icon.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(2px, 1px);
-    background-color: var(--primary);
-  }
-}
 
-/* Animation for Menu Items */
-@media (max-width: 768px) {
-  .nav-links.active li {
-    animation: fadeIn 0.3s ease forwards;
-    opacity: 0;
+  .candidate-portal-nav-menu.active {
+    right: 0;
   }
-  
-  .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
-  .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
-  .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
-  .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
-  .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
-  .nav-links.active li:nth-child(6) { animation-delay: 0.6s; }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
-    }
+
+  .candidate-portal-nav-item {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: candidatePortalFadeIn 0.4s ease forwards;
+  }
+
+  @keyframes candidatePortalFadeIn {
     to {
       opacity: 1;
       transform: translateX(0);
     }
+  }
+
+  /* Staggered animation for menu items */
+  .candidate-portal-nav-menu.active .candidate-portal-nav-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .candidate-portal-nav-menu.active .candidate-portal-nav-item:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .candidate-portal-nav-menu.active .candidate-portal-nav-item:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .candidate-portal-nav-menu.active .candidate-portal-nav-item:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .candidate-portal-nav-menu.active .candidate-portal-nav-item:nth-child(5) {
+    animation-delay: 0.5s;
   }
 }
