@@ -1,4 +1,3 @@
-/* Split Screen Auth Styles */
 :root {
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
@@ -78,24 +77,29 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .auth-card {
   width: 100%;
   max-width: 400px;
+  transition: all 0.3s ease;
 }
 
 .auth-title {
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--gray-700);
-  margin-bottom: 1.5rem;
+  margin-top: 80px;
+  align-items: center;
+  margin-left: 35px;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: -1rem;
+  margin-top: 0px;
 }
 
 .input-group {
@@ -115,6 +119,7 @@ body {
   border: 1px solid var(--gray-200);
   border-radius: 6px;
   font-size: 0.9375rem;
+  transition: all 0.2s;
 }
 
 .input-group input:focus {
@@ -133,6 +138,7 @@ body {
   font-weight: 500;
   cursor: pointer;
   margin-top: 0.5rem;
+  transition: background-color 0.2s;
 }
 
 .auth-button:hover {
@@ -141,7 +147,7 @@ body {
 
 .auth-switch {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: -10px;
   font-size: 0.875rem;
   color: var(--gray-500);
 }
@@ -153,6 +159,7 @@ body {
   font-weight: 500;
   cursor: pointer;
   padding: 0.25rem;
+  transition: all 0.2s;
 }
 
 .auth-switch button:hover {
@@ -173,6 +180,25 @@ body {
   
   .company-section {
     padding: 2rem 1rem;
-    display: none; /* Hide on mobile or adjust as needed */
+    display: none;
   }
+  
+  .form-section {
+    padding: 1.5rem;
+    min-height: 100vh;
+  }
+  
+  .auth-card {
+    max-width: 100%;
+  }
+}
+
+/* Animation for form switch */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-form {
+  animation: fadeIn 0.3s ease-out;
 }

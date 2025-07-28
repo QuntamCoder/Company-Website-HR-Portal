@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './css/LeaveApplicationForm.css';
+import EmployeeDashboard from './EmployeeDashBoard';
 
 const LeaveApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,8 @@ const LeaveApplicationForm = () => {
   };
 
   return (
+    <div>
+      <EmployeeDashboard/>
     <div className="leave-form-container">
       <h2>Leave Application Form</h2>
       <form onSubmit={handleSubmit}>
@@ -117,6 +120,7 @@ const LeaveApplicationForm = () => {
           Submit Application
         </button>
       </form>
+    </div>
     </div>
   );
 };

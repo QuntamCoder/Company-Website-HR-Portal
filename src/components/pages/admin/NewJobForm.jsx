@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './css/NewJobForm.css';
+import HRDashboard from './HRDashboard ';
 
 const NewJobForm = () => {
   const [formData, setFormData] = useState({
@@ -50,6 +51,8 @@ const NewJobForm = () => {
   };
 
   return (
+    <div>
+      <HRDashboard/>
     <div className="new-job-form-container">
       <h2>Post a New Job Opening</h2>
       <form onSubmit={handleSubmit} className="new-job-form">
@@ -128,6 +131,7 @@ const NewJobForm = () => {
 
         <button type="submit">Post Job Opening</button>
       </form>
+    </div>
     </div>
   );
 };

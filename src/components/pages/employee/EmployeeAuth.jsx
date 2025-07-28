@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/LoginSignup.css";
+import "./css/EmployeeAuth.css";
 
 function EmployeeAuth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -10,6 +10,7 @@ function EmployeeAuth() {
     department: ""
   });
   const [error, setError] = useState("");
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -37,6 +38,14 @@ function EmployeeAuth() {
     }
   };
 
+  const toggleAuthMode = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setIsLogin(!isLogin);
+      setIsTransitioning(false);
+    }, 300);
+  };
+
   return (
     <div className="auth-container">
       {/* Left Section - Company Info */}
@@ -52,7 +61,7 @@ function EmployeeAuth() {
 
       {/* Right Section - Auth Form */}
       <div className="form-section">
-        <div className="auth-card">
+        <div className={`auth-card ${isTransitioning ? 'transitioning' : ''}`}>
           <h1 className="auth-title">
             {isLogin ? "Employee Login" : "New Employee Registration"}
           </h1>
@@ -121,14 +130,14 @@ function EmployeeAuth() {
             {isLogin ? (
               <>
                 <span>New employee? </span>
-                <button type="button" onClick={() => setIsLogin(false)}>
+                <button type="button" onClick={toggleAuthMode}>
                   Create account
                 </button>
               </>
             ) : (
               <>
                 <span>Already have an account? </span>
-                <button type="button" onClick={() => setIsLogin(true)}>
+                <button type="button" onClick={toggleAuthMode}>
                   Sign in
                 </button>
               </>

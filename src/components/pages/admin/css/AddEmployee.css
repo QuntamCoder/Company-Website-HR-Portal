@@ -1,117 +1,330 @@
-/* Employee Form Styles */
-.employee-form-container {
-    max-width:1050px;
-   margin-left:300px;
-   margin-top:100px;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
+/* Corporate Staff Registration System Styles */
+.staff-registration-wrapper {
+  margin-left: 300px;
+  margin-top: 100px;
+  max-width: 1400px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
 }
 
-
-.employee-form-title {
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
+/* Header Section Styling */
+.recruitment-header-text {
+  font-size: 1.75rem;
   font-weight: 600;
+  color: #111827;
+  margin: 0;
+  padding: 32px 40px 24px 40px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
 }
 
-.form-section {
-  margin-top: 2.5rem;
+.recruitment-header-text::before {
+  content: '👤';
+  margin-right: 12px;
+  font-size: 1.5rem;
 }
 
-.section-title {
-  color: #3498db;
-  margin-bottom: 1.2rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  border-bottom: 2px solid #f1f5f9;
-  padding-bottom: 0.5rem;
+/* Main Form Container */
+form {
+  padding: 40px;
+  background: #ffffff;
 }
 
-.form-grid {
+/* Data Collection Blocks - Clean Corporate Style */
+.data-collection-block {
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.data-collection-block:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e5e7eb 50%, transparent 100%);
+}
+
+.category-heading-style {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #3b82f6;
+  display: inline-block;
+  position: relative;
+}
+
+/* Corporate Grid Layout for Input Fields */
+.input-fields-matrix {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
 
-.form-group {
-  margin-bottom: 1.2rem;
+/* Individual Field Containers - Enterprise Style */
+.single-field-container {
+  position: relative;
 }
 
-.form-group label {
+.single-field-container label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: #4a5568;
-  font-size: 0.9rem;
   font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
-.form-control {
+/* Text Input Elements - Modern Enterprise */
+.text-input-element {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  border: 1.5px solid #d1d5db;
   border-radius: 6px;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  background: #ffffff;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+  color: #111827;
 }
 
-.form-control:focus {
+.text-input-element:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: #ffffff;
 }
 
-select.form-control {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+.text-input-element:hover:not(:focus) {
+  border-color: #9ca3af;
+}
+
+.text-input-element::placeholder {
+  color: #9ca3af;
+}
+
+/* Select Dropdown - Corporate Style */
+select.text-input-element {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
   background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1rem;
+  background-size: 16px;
+  padding-right: 40px;
+  appearance: none;
 }
 
-.checkbox-group {
+/* Boolean Selection Wrappers - Enterprise Design */
+.boolean-selection-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  position: relative;
 }
 
-.checkbox-group input {
-  margin-right: 0.75rem;
-  width: 1.1rem;
-  height: 1.1rem;
+.boolean-selection-wrapper:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
 }
 
-.submit-btn {
-  background: #3498db;
-  color: white;
+.boolean-selection-wrapper input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #3b82f6;
+  margin: 0;
+}
+
+.boolean-selection-wrapper label {
+  margin: 0;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Primary Action Button - Corporate CTA */
+.primary-action-button {
+  background: #3b82f6;
+  color: #ffffff;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
+  padding: 16px 32px;
+  font-size: 0.95rem;
+  font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: block;
-  margin: 2rem auto 0;
-  width: 200px;
+  transition: all 0.15s ease;
+  width: 100%;
+  margin-top: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-family: inherit;
 }
 
-.submit-btn:hover {
-  background: #2980b9;
-  transform: translateY(-2px);
+.primary-action-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
-/* Responsive */
+.primary-action-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.25);
+}
+
+/* Section Icons for Categories */
+.category-heading-style::before {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.data-collection-block:nth-child(1) .category-heading-style::before { content: '👤'; }
+.data-collection-block:nth-child(2) .category-heading-style::before { content: '💼'; }
+.data-collection-block:nth-child(3) .category-heading-style::before { content: '🎓'; }
+.data-collection-block:nth-child(4) .category-heading-style::before { content: '📋'; }
+.data-collection-block:nth-child(5) .category-heading-style::before { content: '🏦'; }
+.data-collection-block:nth-child(6) .category-heading-style::before { content: '📄'; }
+.data-collection-block:nth-child(7) .category-heading-style::before { content: '🔐'; }
+
+/* Status Indicators for Required Fields */
+.text-input-element:required::after {
+  content: '*';
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+/* Validation States for Input Elements */
+.text-input-element:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.text-input-element:valid:not(:placeholder-shown) {
+  border-color: #10b981;
+}
+
+/* Loading State for Data Collection */
+.data-collection-block.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.data-collection-block.loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+
+/* Responsive Design - Enterprise Breakpoints */
+@media (max-width: 1024px) {
+  .staff-registration-wrapper {
+    margin-left: 200px;
+    max-width: calc(100vw - 240px);
+  }
+}
+
 @media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr;
+  .staff-registration-wrapper {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    max-width: none;
   }
   
-  .employee-form-container {
-    padding: 1.5rem;
+  .input-fields-matrix {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .recruitment-header-text {
+    padding: 24px 24px 16px 24px;
+    font-size: 1.5rem;
+  }
+  
+  form {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .staff-registration-wrapper {
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+  
+  .recruitment-header-text {
+    padding: 20px 20px 12px 20px;
+  }
+  
+  form {
+    padding: 20px;
+  }
+  
+  .primary-action-button {
+    padding: 14px 24px;
+  }
+}
+
+/* Focus Management for Accessibility */
+.text-input-element:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print Styles for Documentation */
+@media print {
+  .staff-registration-wrapper {
+    margin: 0;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .primary-action-button {
+    display: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .text-input-element {
+    border-width: 2px;
+  }
+  
+  .text-input-element:focus {
+    border-width: 3px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
   }
 }

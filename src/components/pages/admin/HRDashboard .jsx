@@ -28,13 +28,13 @@ function HRDashboard() {
               </svg>
               Add Employee
             </Link>
-
-            <a href="#" className="nav-item">
+             <Link to="/report" className="nav-item">
               <svg className="nav-icon" viewBox="0 0 24 24">
-                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" />
+                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.5 8H17c-.8 0-1.5.7-1.5 1.5v6c0 .8.7 1.5 1.5 1.5h1v5h2z" />
               </svg>
               Reports
-            </a>
+            </Link>
+
           </div>
 
           <div className="nav-section">
