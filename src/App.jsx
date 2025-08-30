@@ -16,13 +16,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<CompanyWebsite />} />
+        <Route path="/" element={<EmployeeDashboard />} />
         <Route path="/add-employee" element={<AddEmployee />} />
         <Route path="/post-opening" element={<NewJobForm />} />
         <Route path="/candidate-auth" element={<CandidateAuth />} />
         <Route path="/candidate-dashboard" element={<CandidateNavbar />} />
         <Route path="/report" element={<EmployeePerformanceReport />} />
-        <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
+        {/* <Route path="/employee-dashboard" element={<EmployeeDashboard />} /> */}
         <Route path="/apply-leave" element={<LeaveApplicationForm />} />
         <Route path="/emp-performance" element={<EmployeePerformance />} />
         <Route path="/employee-auth" element={<EmployeeAuth />} />
