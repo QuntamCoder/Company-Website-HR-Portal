@@ -34,15 +34,6 @@ const ServicesSection = ({ servicesRef }) => {
           </p>
         </div>
 
-        <div className="service-card">
-          <h3>Cloud Solutions</h3>
-          <p>
-            Leverage the power of the cloud to enhance scalability, reduce
-            infrastructure costs, and increase data security. We provide
-            end-to-end cloud consulting, migration, and management services
-            across platforms such as AWS, Azure, and Google Cloud.
-          </p>
-        </div>
 
         <div className="service-card">
           <h3>Technical Support</h3>
@@ -63,8 +54,6 @@ const ServicesSection = ({ servicesRef }) => {
           <li>DevOps & CI/CD Implementation</li>
           <li>eCommerce Solutions</li>
           <li>Custom CRM/ERP Development</li>
-          <li>Cybersecurity Audits & Penetration Testing</li>
-          <li>Legacy System Modernization</li>
         </ul>
       </div>
 

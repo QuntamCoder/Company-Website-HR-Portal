@@ -57,7 +57,7 @@ const MainNavbar = ({ onScrollTo }) => {
             </a>
           </li>
           <li className="main-navbar-item">
-            <Link to="/candidate-dashboard" className="nav-link">
+            <Link to="/candidate-auth" className="nav-link">
               Careers
             </Link>
           </li>{" "}

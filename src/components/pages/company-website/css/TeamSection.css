@@ -1,125 +1,211 @@
-/* Team Section Styles */
-.team-section {
-  padding: 80px 20px;
+/* Unique prefix: .teamx- */
+
+.teamx-section {
+  padding: 64px 24px 48px 24px;
+  background: linear-gradient(135deg, #f6f7fb 0%, #e6ecfa 100%);
+  min-height: 100vh;
+}
+
+.teamx-section h2 {
   text-align: center;
-  background-color: #f9f9f9;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  color: #1a237e;
+}
+
+.teamx-section .teamx-description,
+.teamx-section .teamx-closing {
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  text-align: center;
+  color: #616161;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* --- Desktop Grid View --- */
+.teamx-grid.teamx-desktop-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 40px;
+  margin: 36px 0 24px 0;
+}
+
+.teamx-member {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 16px 0 rgba(44, 62, 80, 0.06), 0 1.5px 4px 0 rgba(30, 36, 60, 0.06);
+  transition: transform 0.15s cubic-bezier(.4,2,.3,1), box-shadow 0.15s;
+  padding: 32px 22px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.teamx-member:hover {
+  transform: translateY(-4px) scale(1.025);
+  box-shadow: 0 8px 30px 0 rgba(44, 62, 80, 0.13), 0 2px 6px 0 rgba(30, 36, 60, 0.10);
+}
+
+.teamx-photo-container {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 4px solid #e3eafc;
+  background: linear-gradient(135deg, #e8eaf6 60%, #e3eafc 100%);
+  box-shadow: 0 1.5px 8px 0 rgba(40, 60, 120, 0.06);
+}
+.teamx-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teamx-member h3 {
+  margin: 12px 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222d6e;
+  text-align: center;
+}
+.teamx-member h3 span {
+  display: block;
+  margin-top: 1.5px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: #6169b7;
+  letter-spacing: 0.02em;
+  opacity: 0.82;
+}
+.teamx-member p {
+  color: #4a5568;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+/* Social Links */
+.teamx-social-links {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 2px;
+}
+.teamx-social-links a {
+  color: #5a6cff;
+  background: #e3eafc;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.23rem;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  box-shadow: 0 1.3px 3px 0 rgba(90,108,255,0.08);
+}
+.teamx-social-links a:hover {
+  color: #fff;
+  background: #5a6cff;
+  box-shadow: 0 3px 12px 0 rgba(90,108,255,0.13);
+}
+
+/* --- Mobile Carousel --- */
+.teamx-mobile-view {
+  display: none;
+}
+@media (max-width: 900px) {
+  .teamx-grid.teamx-desktop-view {
+    display: none;
+  }
+  .teamx-mobile-view {
+    display: block;
+  }
+}
+
+.teamx-carousel-container {
   position: relative;
   overflow: hidden;
+  max-width: 420px;
+  margin: 0 auto 30px auto;
+  background: transparent;
 }
 
-.team-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.team-section p {
-  max-width: 800px;
-  margin: 0 auto 40px;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Team Grid */
-.team-grid {
+.teamx-carousel-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  transition: transform 0.44s cubic-bezier(.44,1.5,.77,1.1);
+  will-change: transform;
+}
+
+.teamx-carousel-slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 20px 0;
-  margin: 0 auto 40px;
+  align-items: stretch;
 }
 
-/* Team Member Card */
-.team-member {
-  width: 300px;
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-photo {
-  width: 120px;
-  height: 120px;
+.teamx-carousel-btn {
+  position: absolute;
+  top: 54%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: #fff;
+  border: none;
   border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 4px solid #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 42px;
+  height: 42px;
+  font-size: 1.38rem;
+  color: #5a6cff;
+  box-shadow: 0 2px 8px 0 rgba(90,108,255,0.13);
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s;
+  opacity: 0.93;
+}
+.teamx-carousel-btn.teamx-prev { left: 12px; }
+.teamx-carousel-btn.teamx-next { right: 12px; }
+.teamx-carousel-btn:hover {
+  color: #fff;
+  background: #5a6cff;
 }
 
-.team-member h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.team-member h3 span {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: #666;
-  margin-top: 5px;
-}
-
-.team-member p {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.social-links {
+/* Carousel Indicators */
+.teamx-carousel-indicators {
   display: flex;
+  gap: 8px;
   justify-content: center;
-  gap: 15px;
+  align-items: center;
+  margin-top: 12px;
+}
+.teamx-carousel-indicators .teamx-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e3eafc;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+.teamx-carousel-indicators .teamx-indicator.active {
+  background: #5a6cff;
+  border: 2px solid #3949ab;
 }
 
-.social-links a {
-  color: #666;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #0077b5; /* LinkedIn blue */
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .team-member {
-    width: 250px;
-    padding: 20px;
+@media (max-width: 500px) {
+  .teamx-section {
+    padding: 36px 2vw 22px 2vw;
   }
-}
-
-@media (max-width: 768px) {
-  .team-member {
-    width: 220px;
+  .teamx-carousel-container {
+    max-width: 97vw;
   }
-
-  .team-photo {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .team-section {
-    padding: 60px 15px;
-  }
-
-  .team-grid {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 20px 15px;
-  }
-
-  .team-member {
-    scroll-snap-align: center;
-    min-width: 85%;
+  .teamx-member {
+    padding: 24px 8px 20px 8px;
   }
 }

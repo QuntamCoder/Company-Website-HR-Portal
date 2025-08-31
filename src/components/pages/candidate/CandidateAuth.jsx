@@ -140,6 +140,7 @@ const CandidateAuth = () => {
             {isLogin && (
               <div className="forgot-password">
                 <a href="#forgot">Forgot password?</a>
+                
               </div>
             )}
 
