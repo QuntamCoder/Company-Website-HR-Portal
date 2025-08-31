@@ -43,6 +43,9 @@ function HRDashboard() {
             <Link to="/post-opening" className="nav-item">
               Recruitment
             </Link>
+            <Link to="/hr-announcements" className="nav-item">
+              Announcements
+            </Link>
             <a href="#" className="nav-item">
               Payroll
             </a>

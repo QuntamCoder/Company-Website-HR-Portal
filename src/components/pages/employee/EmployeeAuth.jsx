@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./css/EmployeeAuth.css";
 
 function EmployeeAuth() {
@@ -7,10 +8,13 @@ function EmployeeAuth() {
     employeeId: "",
     password: "",
     name: "",
-    department: ""
+    department: "",
+    role: ""
   });
   const [error, setError] = useState("");
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -22,19 +26,42 @@ function EmployeeAuth() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    
+
     if (isLogin) {
-      if (!formData.employeeId || !formData.password) {
+      if (!formData.employeeId || !formData.password || !formData.role) {
         setError("Please fill in all fields");
         return;
       }
-      console.log("Logging in with:", formData);
+      // Static credentials check
+      if (
+        formData.role === "Employee" &&
+        formData.employeeId === "employee" &&
+        formData.password === "emp123"
+      ) {
+        navigate("/employee-dashboard");
+        return;
+      }
+      if (
+        formData.role === "HR" &&
+        formData.employeeId === "admin" &&
+        formData.password === "admin123"
+      ) {
+        navigate("/hr-dashboard");
+        return;
+      }
+      setError("Invalid credentials");
     } else {
-      if (!formData.employeeId || !formData.password || !formData.name) {
+      if (!formData.employeeId || !formData.password || !formData.name || !formData.role) {
         setError("Please fill in all fields");
         return;
       }
-      console.log("Registering with:", formData);
+      // Registration logic can be extended here
+      setError("Registration successful! Please sign in.");
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setIsLogin(true);
+        setIsTransitioning(false);
+      }, 1000);
     }
   };
 
@@ -43,6 +70,7 @@ function EmployeeAuth() {
     setTimeout(() => {
       setIsLogin(!isLogin);
       setIsTransitioning(false);
+      setError("");
     }, 300);
   };
 
@@ -96,14 +124,15 @@ function EmployeeAuth() {
             )}
 
             <div className="input-group">
-              <label htmlFor="employeeId">Employee ID</label>
+              <label htmlFor="employeeId">{formData.role === "HR" ? "Admin Username" : "Employee ID"}</label>
               <input
                 id="employeeId"
                 name="employeeId"
                 type="text"
                 value={formData.employeeId}
                 onChange={handleChange}
-                placeholder="EMP12345"
+                placeholder={formData.role === "HR" ? "admin" : "EMP12345"}
+                autoComplete="username"
               />
             </div>
 
@@ -116,10 +145,25 @@ function EmployeeAuth() {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
+                autoComplete="current-password"
               />
             </div>
 
-            {error && <div className="error-message">{error}</div>}
+            <div className="input-group">
+              <label htmlFor="role">ROLE</label>
+              <select
+                id="role"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+              >
+                <option value="">Select Role</option>
+                <option value="Employee">Employee</option>
+                <option value="HR">HR</option>
+              </select>
+            </div>
+
+            {error && <div className={`error-message${error.startsWith("Registration successful") ? " success-message" : ""}`}>{error}</div>}
 
             <button type="submit" className="auth-button">
               {isLogin ? "Sign In" : "Register"}
