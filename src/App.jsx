@@ -23,7 +23,7 @@ function App() {
     <Router>
       <Routes>
         //Main Routing
-        {/* <Route path="/" element={<EmployeeAuth />} /> */}
+        <Route path="/" element={<EmployeeAuth />} />
         //HR Routing
         <Route path="/add-employee" element={<AddEmployee />} />
         <Route path="/post-opening" element={<NewJobForm />} />
@@ -51,7 +51,7 @@ function App() {
         <Route path="/career-sec"  element={<CareerSection/>}/>
 
       //Company Routing
-      <Route path="/" element={<CompanyWebsite />} />
+      {/* <Route path="/" element={<CompanyWebsite />} /> */}
 
       </Routes>
     </Router>

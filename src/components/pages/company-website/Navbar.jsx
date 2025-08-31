@@ -57,7 +57,7 @@ const MainNavbar = ({ onScrollTo }) => {
             </a>
           </li>
           <li className="main-navbar-item">
-            <Link to="/candidate-auth" className="nav-link">
+            <Link to="/candidate-dashboard" className="nav-link">
               Careers
             </Link>
           </li>{" "}
@@ -68,8 +68,9 @@ const MainNavbar = ({ onScrollTo }) => {
             <input type="text" placeholder="Search..." />
           </div>
           <div className="main-navbar-auth">
-            <a href="/login">Login</a>
-            <a href="/signup">Sign Up</a>
+             
+             <Link to="/candidate-auth">Sign Up</Link>
+
           </div>
         </div>
       </div>
