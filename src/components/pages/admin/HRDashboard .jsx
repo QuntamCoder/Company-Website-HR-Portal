@@ -15,12 +15,13 @@ function HRDashboard() {
         <nav className="sidebar-nav">
           <div className="nav-section">
             <div className="nav-section-title">Main</div>
-            <a href="#" className="nav-item active">
-              <svg className="nav-icon" viewBox="0 0 24 24">
-                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
-              </svg>
-              Dashboard
-            </a>
+<Link to="/hr-dashboard-content" className="nav-item active">
+  <svg className="nav-icon" viewBox="0 0 24 24">
+    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+  </svg>
+  Dashboard
+</Link>
+
 
             <Link to="/add-employee" className="nav-item">
               <svg className="nav-icon" viewBox="0 0 24 24">

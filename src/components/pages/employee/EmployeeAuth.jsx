@@ -46,7 +46,7 @@ function EmployeeAuth() {
         formData.employeeId === "admin" &&
         formData.password === "admin123"
       ) {
-        navigate("/hr-dashboard");
+        navigate("/hr-dashboard-content");
         return;
       }
       setError("Invalid credentials");

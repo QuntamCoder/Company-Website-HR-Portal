@@ -18,6 +18,7 @@ import HRAnnouncementForm from "./components/pages/admin/HRAnnouncementForm.jsx"
 import EmployeeAttendanceCalendar from "./components/pages/employee/EmployeeAttendanceCalendar.jsx";
 import Profile from "./components/pages/employee/Profile.jsx";  
 import CareerSection from "./components/pages/company-website/CareerSection.jsx";
+import HRDashboardContent from "./components/pages/admin/HRDashboardContent.jsx";
 function App() {
   return (
     <Router>
@@ -31,6 +32,7 @@ function App() {
         <Route path="/hr-dashboard" element={<HRDashboard />} />
         <Route path="/employee-attendance" element={<EmployeeAttendance />} />
         <Route path="/hr-announcements" element={<HRAnnouncementForm />} />
+        <Route path="/hr-dashboard-content" element={<HRDashboardContent />} />
         //Employee Routing
         <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
         <Route

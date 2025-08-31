@@ -205,24 +205,6 @@ const EmployeeAttendance = () => {
           </table>
         </div>
         
-        <div className="att-summary-cards">
-          <div className="att-summary-card att-summary-present">
-            <h3 className="att-summary-title">Present</h3>
-            <span className="att-summary-count">{rows.filter(row => row.status === 'present').length}</span>
-          </div>
-          <div className="att-summary-card att-summary-absent">
-            <h3 className="att-summary-title">Absent</h3>
-            <span className="att-summary-count">{rows.filter(row => row.status === 'absent').length}</span>
-          </div>
-          <div className="att-summary-card att-summary-late">
-            <h3 className="att-summary-title">Late</h3>
-            <span className="att-summary-count">{rows.filter(row => row.status === 'late').length}</span>
-          </div>
-          <div className="att-summary-card att-summary-leave">
-            <h3 className="att-summary-title">On Leave</h3>
-            <span className="att-summary-count">{rows.filter(row => row.status === 'leave').length}</span>
-          </div>
-        </div>
       </div>
     </>
   );
