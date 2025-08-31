@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./css/employee-attendance.css";
+import HRDashboard from "./HRDashboard ";
 
 const initialData = [
   {
@@ -150,7 +151,7 @@ const EmployeeAttendance = () => {
   };
 
   return (
-    <><EmployeeAttendance />
+    <><HRDashboard />
     <div className="employee-attendance-container">
       <h2>Employee Attendance</h2>
       <div className="bulk-actions">

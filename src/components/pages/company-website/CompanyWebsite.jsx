@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import MainNavbar from "../../pages/company-website/Navbar.jsx";
 import MainFooter from "../../pages/company-website/Footer.jsx";
-
+import { Link } from "react-router-dom";
 import HeroSection from "./HeroSection.jsx";
 import AboutSection from "./AboutSection.jsx";
 import ServicesSection from "./ServicesSection.jsx";
@@ -17,7 +17,7 @@ const CompanyWebsite = () => {
   const servicesRef = useRef(null);
   const blogRef = useRef(null);
   const teamRef = useRef(null);
-  // const careerRef = useRef(null);
+  const careerRef = useRef(null);
   const contactRef = useRef(null);
 
   // Scroll function
@@ -37,7 +37,7 @@ const CompanyWebsite = () => {
           services: scrollToSection(servicesRef),
           blog: scrollToSection(blogRef),
           team: scrollToSection(teamRef),
-          // careers: scrollToSection(careerRef),
+          careers: scrollToSection(careerRef),
           contact: scrollToSection(contactRef),
         }}
       />
@@ -63,9 +63,9 @@ const CompanyWebsite = () => {
         <TeamSection />
       </section>
 
-      {/* <section ref={careerRef}>
+      <section ref={careerRef}>
         <CareerSection />
-      </section> */}
+      </section>
 
       <section ref={contactRef}>
         <ContactForm />
