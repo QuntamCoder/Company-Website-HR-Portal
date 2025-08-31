@@ -266,8 +266,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-    justify-content: center;
-  align-items: center;
+  
 }
 
 .submit-btn:hover {

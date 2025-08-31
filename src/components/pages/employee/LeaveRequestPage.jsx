@@ -67,40 +67,7 @@ export default function LeaveRequestPage() {
     <>
     <EmployeeDashboard />   
     <div className="leave-page-container">
-      <div className="leave-page-header">
-        <h2>
-          Hi, <span>Shubham</span>
-        </h2>
-      </div>
-      <div className="leave-page-top">
-        <div className="upcoming-leaves">
-          <div className="upcoming-leaves-title">Upcoming leaves</div>
-          <div className="upcoming-leaves-days">
-            <span>03 Days</span>
-            <span className="leave-check">&#10004;</span>
-          </div>
-          <div className="upcoming-leaves-dates">
-            04/04/2023 - 06/04/2023
-          </div>
-          <div className="upcoming-leaves-type">Paid Time Off (PTO)</div>
-        </div>
-        <div className="leaves-remaining-box">
-          <div className="leaves-remaining-number">27/30</div>
-          <div className="leaves-remaining-text">
-            <div className="leave-illus">
-              <span role="img" aria-label="person">
-                <svg height="60" width="40" style={{ marginRight: 10 }}>
-                  <circle cx="20" cy="20" r="8" fill="#4441e7" />
-                  <rect x="14" y="28" width="12" height="20" rx="6" fill="#555" />
-                  <rect x="16" y="48" width="2" height="8" fill="#4441e7" />
-                  <rect x="22" y="48" width="2" height="8" fill="#4441e7" />
-                </svg>
-              </span>
-              <span className="leaves-remaining-desc">Leaves remaining</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       <div className="leave-request-section">
         <div className="leave-request-title">Leave request</div>

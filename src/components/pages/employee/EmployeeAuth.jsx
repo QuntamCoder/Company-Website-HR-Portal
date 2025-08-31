@@ -38,7 +38,7 @@ function EmployeeAuth() {
         formData.employeeId === "employee" &&
         formData.password === "emp123"
       ) {
-        navigate("/employee-dashboard");
+        navigate("/dashboard-content");
         return;
       }
       if (
