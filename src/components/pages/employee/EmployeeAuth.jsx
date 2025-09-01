@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/EmployeeAuth.css";
 
@@ -13,9 +13,22 @@ function EmployeeAuth() {
   });
   const [error, setError] = useState("");
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [roles, setRoles] = useState([]);
 
   const navigate = useNavigate();
 
+  // Fetch available roles from the backend
+  useEffect(() => {
+    fetch("http://localhost:8080/api/auth/roles")
+      .then(res => res.json())
+      .then(data => setRoles(data))
+      .catch(() => setRoles([
+        { id: 1, name: "Employee" },
+        { id: 2, name: "Admin" }
+      ])); // fallback if backend fails
+  }, []);
+
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,7 +36,8 @@ function EmployeeAuth() {
     });
   };
 
-  const handleSubmit = (e) => {
+  // Handle form submission for login/sign up
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -32,39 +46,63 @@ function EmployeeAuth() {
         setError("Please fill in all fields");
         return;
       }
-      // Static credentials check
-      if (
-        formData.role === "Employee" &&
-        formData.employeeId === "employee" &&
-        formData.password === "emp123"
-      ) {
-        navigate("/dashboard-content");
-        return;
+      try {
+        const res = await fetch("http://localhost:8080/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: formData.employeeId,
+            password: formData.password,
+            role: formData.role
+          }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          if (data.role && data.role.toLowerCase().includes("admin")) {
+            navigate("/hr-dashboard-content");
+          } else {
+            navigate("/dashboard-content");
+          }
+        } else {
+          setError(data.message || "Invalid credentials");
+        }
+      } catch {
+        setError("Server error");
       }
-      if (
-        formData.role === "HR" &&
-        formData.employeeId === "admin" &&
-        formData.password === "admin123"
-      ) {
-        navigate("/hr-dashboard-content");
-        return;
-      }
-      setError("Invalid credentials");
     } else {
       if (!formData.employeeId || !formData.password || !formData.name || !formData.role) {
         setError("Please fill in all fields");
         return;
       }
-      // Registration logic can be extended here
-      setError("Registration successful! Please sign in.");
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setIsLogin(true);
-        setIsTransitioning(false);
-      }, 1000);
+      try {
+        const res = await fetch("http://localhost:8080/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: formData.employeeId,
+            password: formData.password,
+            email: `${formData.employeeId}@company.com`,
+            role: formData.role
+          }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          setError("Registration successful! Please sign in.");
+          setIsTransitioning(true);
+          setTimeout(() => {
+            setIsLogin(true);
+            setIsTransitioning(false);
+          }, 1000);
+        } else {
+          setError(data.message || "Registration failed");
+        }
+      } catch {
+        setError("Server error");
+      }
     }
   };
 
+  // Toggle login/signup form
   const toggleAuthMode = () => {
     setIsTransitioning(true);
     setTimeout(() => {
@@ -124,14 +162,14 @@ function EmployeeAuth() {
             )}
 
             <div className="input-group">
-              <label htmlFor="employeeId">{formData.role === "HR" ? "Admin Username" : "Employee ID"}</label>
+              <label htmlFor="employeeId">{formData.role === "Admin" ? "Admin Username" : "Employee ID"}</label>
               <input
                 id="employeeId"
                 name="employeeId"
                 type="text"
                 value={formData.employeeId}
                 onChange={handleChange}
-                placeholder={formData.role === "HR" ? "admin" : "EMP12345"}
+                placeholder={formData.role === "Admin" ? "admin" : "EMP12345"}
                 autoComplete="username"
               />
             </div>
@@ -158,8 +196,9 @@ function EmployeeAuth() {
                 onChange={handleChange}
               >
                 <option value="">Select Role</option>
-                <option value="Employee">Employee</option>
-                <option value="HR">HR</option>
+                {roles.map(role =>
+                  <option key={role.id} value={role.name}>{role.name}</option>
+                )}
               </select>
             </div>
 
